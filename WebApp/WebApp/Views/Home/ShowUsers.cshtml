@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApp.Models.User>
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUsers</title>
+</head>
+<body>
+    <ol class="breadcrumb">
+        <li><a href="~/Home/Index/">Главная</a></li>
+        <li class="active">Читатели</li>
+    </ol>
+    <ul class="nav nav-pills">
+
+        @foreach (var u in Model)
+        {
+            <li role="presentation">
+                <a href="/Home/FindUser/@u.Id" class="list-group-item list-group-item-warning">
+                    @u.Id  - @u.Name @u.LastName
+                </a>
+            </li>
+        }
+
+    </ul>
+    <h3><span class="label label-info">@Html.ActionLink("Добавить пользователя", "AddUser")</span></h3>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</body>
+</html>

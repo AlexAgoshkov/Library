@@ -1,0 +1,35 @@
+﻿@model WebApp.Models.Book
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <title>ShowReaders</title>
+</head>
+<body>
+    <ol class="breadcrumb">
+        <li><a href="Index">Главная</a></li>
+        <li class="active"><a href="ShowReaders">Читатели</a></li>
+        <li class="active">Книги читателя</li>
+    </ol>
+    <center><h1 class="head"><div class="alert alert-success" role="alert">@Model.Name</div></h1></center>
+    <div class="div-list">
+
+        @foreach (var u in Model.Users)
+        {
+            <div class="list-group" width="20"><a class="list-group-item list-group-item-warning">@u.Name @u.LastName</a><a href="/Home/RemoveBookFromUser/@u.Id/@Model.Id">Удалить</a></div>
+        }
+    </div>
+
+
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</body>
+</html>

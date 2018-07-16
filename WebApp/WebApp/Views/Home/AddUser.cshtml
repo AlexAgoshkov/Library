@@ -1,0 +1,37 @@
+﻿@model WebApp.Models.User
+
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>AddUser</title>
+</head>
+<body>
+    <h1 class="head">Добавление нового пользователя</h1>
+    <form method="post">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Имя</span>
+            <input type="text" name="Name" class="form-control" placeholder="Name" aria-describedby="basic-addon1">
+
+            <span class="input-group-addon" id="basic-addon1">Фамилия</span>
+            <input type="text" name="LastName" class="form-control" placeholder="LastName" aria-describedby="basic-addon1">
+        </div>
+
+        <button class="btn-success" value="submit">Отправить</button>
+
+
+    </form>
+
+
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</body>
+</html>

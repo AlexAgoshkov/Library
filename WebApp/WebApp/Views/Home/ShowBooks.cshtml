@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApp.Models.Book>
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Книги</title>
+
+</head>
+<body>
+    <ol class="breadcrumb">
+        <li><a href="Index">Главная</a></li>
+        <li class="active"><a href="~/Views/Home/ShowBooks.cshtml"></a>Книги</li>
+    </ol>
+    <h1 class="head">Книги</h1>
+    <div>
+        @foreach (var b in Model)
+        {
+            <div class="alert alert-warning" role="alert"><a href="/Home/ShowReaders/@b.Id">@b.Id - @b.Name </a></div>
+        }
+    </div>
+
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</body>
+</html>
