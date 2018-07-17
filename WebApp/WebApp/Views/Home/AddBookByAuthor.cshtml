@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddBookByAuthor</title>
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h1 class="head">Добавление новой книги</h1>
+    <div>
+        <form method="post">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Название книги</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" name="bookTitle">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Фамилия автора</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" name="authorSecondName">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Имя автора</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" name="authorName">
+            </div>
+
+            <button class="btn-success" value="submit">Отправить</button>
+        </form>
+    </div>
+
+
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<WebApp.Models.Book>
+
 @{
     Layout = "~/Views/_Layout.cshtml";
 }
@@ -8,26 +9,25 @@
 <html>
 <head>
     <link href="/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/myStyle.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
-    <title>Книги</title>
-
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <title>TakeBook</title>
 </head>
 <body>
-    <ol class="breadcrumb">
-        <li><a href="~/Home/Index">Главная</a></li>
-      
-    </ol>
-    <h1 class="head">Книги</h1>
+    <center><h1 class="head">Имеющиеся книги</h1></center>
     <div>
         @foreach (var b in Model)
         {
-            <div class="alert alert-warning" role="alert"><a href="/Home/ShowReaders/@b.Id">@b.Id - @b.Name </a></div>
-        }
-    </div>
 
+            <div class="list-group" width="20"><a class="list-group-item list-group-item-warning">@b.Name</a>
+        <a href="/Home/BookHasTaken/@ViewBag.id/@b.Id">Взять</a></div>
+
+        }
+
+    </div>
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/jquery-3.1.1.js"></script>
 </body>
 </html>
+

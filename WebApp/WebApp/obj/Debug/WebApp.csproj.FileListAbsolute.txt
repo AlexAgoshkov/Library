@@ -47,7 +47,7 @@ D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\bin\ru\System.Web.Razor.resources.d
 D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\bin\ru\System.Web.WebPages.resources.dll
 D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\bin\ru\System.Web.WebPages.Deployment.resources.dll
 D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\bin\ru\System.Web.WebPages.Razor.resources.dll
-D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache
 D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\obj\Debug\WebApp.dll
 D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\obj\Debug\WebApp.pdb
+D:\Sources\GitHub\SiteCoreTask\WebApp\WebApp\obj\Debug\WebApp.csprojResolveAssemblyReference.cache

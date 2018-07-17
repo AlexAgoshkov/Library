@@ -40,10 +40,31 @@ namespace WebApp.Controllers
             return Redirect("/Home/ShowUsers");
         }
 
+        public RedirectResult BookHasTaken(int id, int id2)
+        {
+            eF.AddUserBook(id, id2);
+            return Redirect("/Home/FindUser/" + id);
+        }
+
+
+        [HttpGet]
+        public ActionResult TakeBook(int id)
+        {
+            ViewBag.id = id;
+            return View(eF.GetBooks());
+        }
+
+        public ActionResult ShowAutors()
+        {
+            return View(eF.GetAutors());
+        }
+
         public ActionResult ShowReaders(int id)
         {
             return View(eF.GetBook(id));
         }
+
+
 
         public ActionResult FindUser(int id)
         {
@@ -55,18 +76,44 @@ namespace WebApp.Controllers
             return View(eF.GetAutor(id));
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
+        [HttpGet]
+        public RedirectResult RemoveBookFromUser(int id, int id2)
+        {
+            eF.RemoveBookFromUser(id, id2);
+            string path = "/Home/ShowReaders/" + id2;
+            return Redirect(path);
+        }
+
+        [HttpGet]
+        public ActionResult AddAuthor()
+        {
+            return View();
+        }
+        [HttpPost]
+        public RedirectResult AddAuthor(Autor book)
+        {
+            eF.AddAuthor(book);
+            return Redirect("/Home/ShowAutors");
+        }
+
+        [HttpGet]
+        public ActionResult AddBookByAuthor()
+        {
             return View();
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public RedirectResult AddBookByAuthor(string authorName, string authorSecondName, string bookTitle)
         {
-            ViewBag.Message = "Your contact page.";
+            if (authorName != "" && authorSecondName != "" && bookTitle != "")
+            {
+                eF.AddBookByAuthor(authorName, authorSecondName, bookTitle);
+                return Redirect("/Home/ShowBooks/");
 
-            return View();
+            }
+            return Redirect("/Home/AddBookByAuthor/");
         }
+
     }
 }

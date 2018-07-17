@@ -239,11 +239,14 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\ShowBooks.cshtml" />
     <Content Include="Views\Home\ShowUsers.cshtml" />
-    <Content Include="Views\Home\ShowAuthors.cshtml" />
+    <Content Include="Views\Home\ShowAutors.cshtml" />
     <Content Include="Views\Home\AddUser.cshtml" />
     <Content Include="Views\Home\FindUser.cshtml" />
-    <Content Include="Views\Home\FindAuthor.cshtml" />
     <Content Include="Views\Home\ShowReaders.cshtml" />
+    <Content Include="Views\Home\TakeBook.cshtml" />
+    <Content Include="Views\Home\FindAutor.cshtml" />
+    <Content Include="Views\Home\AddBookByAuthor.cshtml" />
+    <Content Include="Views\Home\AddAuthor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

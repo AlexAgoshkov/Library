@@ -14,18 +14,19 @@
 </head>
 <body>
     <ol class="breadcrumb">
-        <li><a href="~/Home/Index/">Главная</a></li>
-        <li class="active">Читатели</li>
+        <li><a href="~/Home/Index">Главная</a></li>
+      
     </ol>
     <ul class="nav nav-pills">
 
         @foreach (var u in Model)
         {
-            <li role="presentation">
-                <a href="/Home/FindUser/@u.Id" class="list-group-item list-group-item-warning">
-                    @u.Id  - @u.Name @u.LastName
-                </a>
-            </li>
+        <li role="presentation">
+            <a href="/Home/FindUser/@u.Id" class="list-group-item list-group-item-warning">
+                @u.Id  - @u.Name @u.LastName
+            </a>
+           
+        </li>
         }
 
     </ul>

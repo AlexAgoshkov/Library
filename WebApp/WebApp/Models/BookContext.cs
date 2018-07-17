@@ -63,7 +63,7 @@ namespace WebApp.Models
     {
         public Book(string title)
         {
-            this.Name = title;
+            Name = title;
             Users = new List<User>();
             Autors = new List<Autor>();
         }

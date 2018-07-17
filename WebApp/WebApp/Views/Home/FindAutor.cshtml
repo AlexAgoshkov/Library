@@ -15,9 +15,7 @@
 <body>
 
     <ol class="breadcrumb">
-        <li><a href="Index">Main</a></li>
-        <li><a href="/Home/ShowAutors/">Авторы</a></li>
-        <li class="active">Книги автора</li>
+        <li><a href="~/Home/Index">Главная</a></li>
     </ol>
     <h1 class="head">@Model.Name @Model.LastName</h1>
 
@@ -25,7 +23,7 @@
     {
         <div class="alert alert-success">@item.Name</div>
     }
-
+    <div class="link">@Html.ActionLink("Добавить книгу", "AddBookByAuthor")</div>
 
     <script src="Scripts/bootstrap.js"></script>
 </body>
