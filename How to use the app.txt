@@ -1,0 +1,9 @@
+1. You need to open your SQL Management Studio and create new script after that you need to copy text from "SiteCoreTask\Script.sql" and execute it 
+
+2. Open the project in Visual Studio 2017 and you need to open web config from 
+"SiteCoreTask\WebApp\WebApp\Web.config" after that you need to change "Data Source" on your SQL Server Name 
+
+3. You need to restore Nuget packages in Visual Studio 2017 for this you need to use right click on solution name "WebApp"
+after that, choose "restore Nuget packages" from the menu.
+
+4. Run the project from Index.cshtml page 
