@@ -85,6 +85,7 @@ namespace WebApp.Models
     public class User : Person
     {
         public virtual ICollection<Book> Books { get; set; }
+        public string userEmail { get; set; }
         public User()
         {
             Books = new List<Book>();

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace WebApp.Models
@@ -24,8 +27,28 @@ namespace WebApp.Models
             return bk.Autors;
         }
 
-
         /// <summary>
+        /// Получаем Email пользователя по ID
+        /// </summary>
+        /// <param name="userID">ID Пользователя</param>
+        /// <returns></returns>
+        public async Task<string> GetUserEmail(int userID)
+        {
+            string mail = "";
+
+            return await Task.Run(() =>
+            {
+                var a = bk.Users.Where(x => x.Id == userID);
+                foreach (var item in a)
+                {
+                    mail = item.userEmail;
+                    break;
+                }
+                return mail;
+            });
+        }
+        
+        /// <summary>   
         /// Получаем автора по ID
         /// </summary>
         /// <param name="id">Идентификаационный номер автора</param>
@@ -52,9 +75,7 @@ namespace WebApp.Models
         {
             return bk.Users.FirstOrDefault(x => x.Id == id);
         }
-
-
-
+        
         /// <summary>
         /// Привязка книги к пользователю
         /// </summary>
@@ -89,7 +110,7 @@ namespace WebApp.Models
         }
 
         /// <summary>
-        /// Добавление новой книги и связывание еще с автором
+        /// Добавление новой книги автору
         /// </summary>
         /// <param name="authorName">Имя автора</param>
         /// <param name="authorSecondName">Фамилия автора</param>
@@ -141,7 +162,37 @@ namespace WebApp.Models
 
             bk.SaveChanges();                                              // Сохраняем результат
         }
-        
+
+        /// <summary>
+        /// Уведомление пользователя по электронной почте о том что он взял книгу 
+        /// </summary>
+        /// <param name="userID">ID Пользователя</param>
+        /// <param name="bookID">ID книги</param>
+        public async void SendMail(int userID, int bookID)
+        {
+            string mail = await GetUserEmail(userID);
+
+            // отправитель - устанавливаем адрес и отображаемое в письме имя
+            MailAddress from = new MailAddress("librarytestmail3@gmail.com", "Library");
+            // кому отправляем
+            MailAddress to = new MailAddress(mail);
+            // создаем объект сообщения
+            MailMessage m = new MailMessage(from, to);
+            // тема письма
+            m.Subject = "Взята Книга";
+            // текст письма
+            m.Body = "<h2>Вы Взяли Книгу " + GetBook(bookID).Name + " </h2>";
+            // письмо представляет код html
+            m.IsBodyHtml = true;
+            // адрес smtp-сервера и порт, с которого будем отправлять письмо
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            // логин и пароль
+            //Надо убедится что в почтовом аккаунте есть доступ к неизвестным источникам
+            smtp.Credentials = new NetworkCredential("librarytestmail3@gmail.com", "12qw34er56ty");
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+
+        }
 
         /// <summary>
         /// Отвязка книги от пользователя
@@ -155,6 +206,7 @@ namespace WebApp.Models
             bk.SaveChanges();
         }
 
-       
+
+
     }
 }

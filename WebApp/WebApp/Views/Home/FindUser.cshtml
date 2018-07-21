@@ -27,14 +27,19 @@
             </div>
         </h1>
     </center>
+    <div class="alert alert-dark" role="alert">
+        <p>User Email - @Model.userEmail</p>
+    </div>
+
     <div>
+
         @foreach (var b in Model.Books)
         {
             <div class="list-group" width="20"><a class="list-group-item list-group-item-warning">@b.Name</a><a href="/Home/RemoveBookFromUser/@Model.Id/@b.Id">Удалить</a></div>
         }
     </div>
 
-    <a href="/Home/TakeBook/@Model.Id"><div class="link">Взять книгу</div></a>
+    <a href="/Home/TakeBook/@Model.Id"> <div class="link">Взять книгу</div></a>
 
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/jquery-3.1.1.js"></script>

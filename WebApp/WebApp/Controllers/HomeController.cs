@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebApp.Models;
@@ -40,17 +41,18 @@ namespace WebApp.Controllers
             return Redirect("/Home/ShowUsers");
         }
 
-        public RedirectResult BookHasTaken(int id, int id2)
+        public async Task<RedirectResult> BookHasTaken(int id, int id2)
         {
             eF.AddUserBook(id, id2);
+            await Task.Run(() => eF.SendMail(id, id2));
             return Redirect("/Home/FindUser/" + id);
         }
-
 
         [HttpGet]
         public ActionResult TakeBook(int id)
         {
             ViewBag.id = id;
+        
             return View(eF.GetBooks());
         }
 
@@ -65,7 +67,6 @@ namespace WebApp.Controllers
         }
 
 
-
         public ActionResult FindUser(int id)
         {
             return View(eF.GetUser(id));
@@ -76,12 +77,11 @@ namespace WebApp.Controllers
             return View(eF.GetAutor(id));
         }
 
-
         [HttpGet]
         public RedirectResult RemoveBookFromUser(int id, int id2)
         {
             eF.RemoveBookFromUser(id, id2);
-            string path = "/Home/ShowReaders/" + id2;
+            string path = "/Home/FindUser/" + id;
             return Redirect(path);
         }
 
