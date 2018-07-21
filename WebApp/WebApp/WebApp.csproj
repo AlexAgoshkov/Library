@@ -247,7 +247,6 @@
     <Content Include="Views\Home\FindAutor.cshtml" />
     <Content Include="Views\Home\AddBookByAuthor.cshtml" />
     <Content Include="Views\Home\AddAuthor.cshtml" />
-    <Content Include="Views\Home\ShowEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
