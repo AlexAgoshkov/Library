@@ -10,7 +10,7 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        BookContext bookContext = new BookContext();
+        
         Repository eF = new Repository();
 
         public ActionResult Index()
